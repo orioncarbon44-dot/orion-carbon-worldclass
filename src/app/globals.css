@@ -2,7 +2,7 @@
 
 /* Define the base styles and colors for a professional look */
 @tailwind base;
-@tailwind components;
+@tailwind components; 
 @tailwind utilities;
 
 /* 1. Global Reset & World-Class Typography */
