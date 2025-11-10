@@ -1,0 +1,98 @@
+// src/app/academy/page.tsx
+
+import React from 'react';
+import Link from 'next/link'; 
+
+const AcademyPage = () => {
+    const deepBlue = 'text-[#191970]'; 
+    const hunterGreen = 'text-[#008080]'; 
+    const accentGold = 'bg-[#FFD700]'; 
+
+    return (
+        <div className="min-h-screen bg-gray-50 py-12">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                
+                {/* 1. HERO SECTION: ACADEMY FOCUS */}
+                <h1 className={`text-4xl md:text-5xl font-extrabold ${hunterGreen} mb-4`}>
+                    Orion Academy: Your Direct Path to a Green Career.
+                </h1>
+                <p className={`text-xl text-gray-600 max-w-4xl mx-auto mb-6 ${deepBlue} font-medium`}>
+                    Practical, job-linked training designed to meet the immediate technical needs of the South African carbon market. **Learn today, work tomorrow.**
+                </p>
+                <Link href="#courses" className={`py-3 px-8 text-lg font-bold ${accentGold} ${deepBlue} rounded-lg shadow-md hover:shadow-lg transition duration-300`}>
+                    View Courses & Pricing
+                </Link>
+
+                {/* 2. VALUE PROPOSITION: WHY ORION ACADEMY? */}
+                <div className="mt-16 p-8 bg-white shadow-xl rounded-xl">
+                    <h2 className={`text-3xl font-bold ${deepBlue} mb-8`}>Why Choose Orion Academy?</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                        <ValuePropCard title="1. Job-Linked & Practical" description="Training focuses on the Key Activities employers need: monitoring, data analysis, and documentation support." color="border-l-4 border-[#191970]" />
+                        <ValuePropCard title="2. Affordable & Localised" description="Affordable fees and content aligned to industry needs, including regional workshops and AI-supported learning." color="border-l-4 border-[#008080]" />
+                        <ValuePropCard title="3. Placement Partnerships" description="Direct access to our micro-job pool and placement network with NGOs, SETAs, and Project Developers." color="border-l-4 border-[#191970]" />
+                    </div>
+                </div>
+
+                {/* 3. COURSE CATALOG (The Revenue Stream) */}
+                <div className="mt-16" id="courses">
+                    <h2 className={`text-4xl font-bold ${hunterGreen} mb-10`}>Our Course Catalog (Start Earning Today)</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        
+                        {/* Course 1: The Micro-Product (IMMEDIATE REVENUE) */}
+                        <CourseCard 
+                            title="SA Carbon Project Eligibility Kit" 
+                            description="Quick-start PDF checklist and guide for VVB validation and registry submission." 
+                            price="RXXX" 
+                            ctaText="Buy Now (Instant Access)" 
+                            link="#" // CRUCIAL: You MUST replace '#' with your payment link!
+                            ctaColor="bg-[#008080]"
+                        />
+
+                        {/* Course 2: The Upskilling Product */}
+                        <CourseCard 
+                            title="Green Data Technician Certification" 
+                            description="Intensive training on IoT monitoring, mobile data collection, and baseline reporting for projects." 
+                            price="R1,500" 
+                            ctaText="Enquire Now" 
+                            link="/contact"
+                            ctaColor="bg-[#191970]"
+                        />
+
+                        {/* Course 3: The Corporate Product */}
+                        <CourseCard 
+                            title="Corporate ESG/Carbon Market Mastery" 
+                            description="Custom training for corporate teams on compliance needs and tokenization best practices." 
+                            price="Quote Required" 
+                            ctaText="Request Corporate Quote" 
+                            link="/contact"
+                            ctaColor="bg-[#191970]"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Helper Components for clean code (Optimization)
+interface CardProps { title: string; description: string; color?: string; }
+const ValuePropCard: React.FC<CardProps> = ({ title, description, color }) => (
+    <div className={`p-5 bg-gray-50 rounded-lg shadow-md ${color}`}>
+        <h3 className={`text-xl font-semibold text-[#008080] mb-2`}>{title}</h3>
+        <p className="text-gray-600">{description}</p>
+    </div>
+);
+
+interface CourseCardProps extends CardProps { price: string; ctaText: string; link: string; ctaColor: string;}
+const CourseCard: React.FC<CourseCardProps> = ({ title, description, price, ctaText, link, ctaColor }) => (
+    <div className="p-6 bg-white rounded-xl shadow-xl border-t-4 border-[#008080]">
+        <h3 className="text-2xl font-bold text-[#191970] mb-2">{title}</h3>
+        <p className="text-gray-600 mb-4">{description}</p>
+        <p className="text-3xl font-extrabold text-[#191970] mb-4">{price}</p>
+        <Link href={link} className={`block w-full py-3 font-bold text-white rounded-lg transition duration-300 ${ctaColor} hover:opacity-90`}>
+            {ctaText}
+        </Link>
+    </div>
+);
+
+export default AcademyPage;
