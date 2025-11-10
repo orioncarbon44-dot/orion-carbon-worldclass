@@ -1,7 +1,7 @@
 // src/app/development/page.tsx
 
 import React from 'react';
-import Link from 'next/link'; 
+import Link from 'next/link';
 
 const DevelopmentPage = () => {
     const deepBlue = 'text-[#191970]'; 
