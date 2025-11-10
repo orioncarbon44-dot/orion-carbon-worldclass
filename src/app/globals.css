@@ -1,0 +1,25 @@
+/* src/app/globals.css */
+
+/* Define the base styles and colors for a professional look */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 1. Global Reset & World-Class Typography */
+body {
+    background-color: #F0F0F0; 
+    color: #333333; 
+    line-height: 1.6;
+}
+
+/* 2. Custom BMC Colors (Deep Midnight Blue, Hunter Green) */
+:root {
+    --color-primary: #191970;     /* Deep Midnight Blue (Trust/Rigor) */
+    --color-secondary: #008080;   /* Hunter Green (Growth/Sustainability) */
+    --color-accent: #FFD700;      /* Gold/Yellow for CTAs (Visibility) */
+}
+
+/* 3. Global Headers (Strong and Impactful) */
+h1, h2, h3 {
+    font-weight: 700;
+}
