@@ -1,0 +1,81 @@
+// src/app/tokenization/page.tsx
+
+import React from 'react';
+import Link from 'next/link'; 
+
+const TokenizationPage = () => {
+    const deepBlue = 'text-[#191970]'; 
+    const hunterGreen = 'text-[#008080]'; 
+    const accentGold = 'bg-[#FFD700]'; 
+
+    const integrityPoints = [
+        { title: "1:1 Backing", description: "Every digital token is directly backed by one verified carbon credit unit (VCCU) registered on a recognized registry (e.g., Verra, Gold Standard).", icon: "✅" },
+        { title: "Transparency Audit Trail", description: "The blockchain provides an immutable, auditable record showing the origin (project ID) and retirement history of every token.", icon: "🔎" },
+        { title: "Low-Cost Chains", description: "Tokens are issued on efficient, low-cost, and carbon-neutral blockchain networks (e.g., Polygon/Celo) to reduce transaction fees.", icon: "⚙️" },
+        { title: "Institutional Compliance", description: "Token standards are designed for corporate and institutional trading and retirement, adhering to global ESG reporting needs.", icon: "🏦" },
+    ];
+
+    return (
+        <div className="min-h-screen bg-gray-50 py-12">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                
+                {/* 1. HERO SECTION: TOKENIZATION FOCUS */}
+                <h1 className={`text-4xl md:text-5xl font-extrabold ${hunterGreen} mb-4`}>
+                    Blockchain Integrity: Tokenization for Trust.
+                </h1>
+                <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-6 font-medium">
+                    We use technology to replace complexity. Orion tokens offer unparalleled **Transparency** and efficiency in carbon asset trading and retirement.
+                </p>
+
+                {/* 2. THE INTEGRITY PROMISE (Transparency & Excellence) */}
+                <div className="mt-12 p-8 bg-white shadow-xl rounded-xl">
+                    <h2 className={`text-3xl font-bold ${deepBlue} mb-8`}>
+                        Four Pillars of Token Integrity
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                        {integrityPoints.map((point) => (
+                            <IntegrityCard 
+                                key={point.title}
+                                icon={point.icon} 
+                                title={point.title} 
+                                description={point.description}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                {/* 3. CALL TO ACTION */}
+                <div className="mt-16">
+                    <h2 className={`text-3xl font-bold ${hunterGreen} mb-4`}>
+                        Access Tokenized Carbon Assets
+                    </h2>
+                    <p className="text-lg text-gray-600 mb-6">
+                        For institutional buyers or projects ready for tokenization, contact our trading desk for current asset pools and on-chain details.
+                    </p>
+                    <Link href="/contact" className={`py-3 px-8 text-lg font-bold bg-[#191970] text-white rounded-lg shadow-md hover:opacity-90 transition duration-300`}>
+                        Connect for Asset Access
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+// Helper Component for Integrity Cards (Optimization)
+interface IntegrityCardProps {
+    icon: string;
+    title: string;
+    description: string;
+}
+
+const IntegrityCard: React.FC<IntegrityCardProps> = ({ icon, title, description }) => (
+    <div className="p-4 border border-gray-200 rounded-lg flex items-start space-x-3">
+        <span className="text-2xl flex-shrink-0">{icon}</span>
+        <div>
+            <h3 className={`text-xl font-semibold text-[#191970] mb-1`}>{title}</h3>
+            <p className="text-sm text-gray-600">{description}</p>
+        </div>
+    </div>
+);
+
+export default TokenizationPage;
